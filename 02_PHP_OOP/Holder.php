@@ -1,25 +1,16 @@
 <?php
-  class Holder{
-    private string $cpf;
-    private string $name;
+  require_once "People.php";
+
+  class Holder extends People{
     private string $birth_date;
 
     // Construction
     public function __construct(string $cpfHolder, string $nameHolder, string $birthDateHolder){
-      $this->cpf     = $cpfHolder;
-      $this->name    = $nameHolder;
+      parent::__construct($nameHolder, $cpfHolder);
       $this->birth_date    = $birthDateHolder;
     }
 
     //Encapsulation
-    public function getCpf():string{
-      return $this->cpf;
-    }
-
-    public function getName():string{
-      return $this->name;
-    }
-
     public function getBirthDate():string{
       return $this->birth_date;
     }

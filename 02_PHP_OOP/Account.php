@@ -1,5 +1,5 @@
 <?php
-
+  
   class Account{
     private Holder $holder;
     private float $balance;
