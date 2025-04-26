@@ -1,5 +1,8 @@
 <?php
   
+  namespace Bank\Entities;
+  use Bank\Entities\Holder;
+
   class Account{
     private Holder $holder;
     private float $balance;

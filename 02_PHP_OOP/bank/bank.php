@@ -1,6 +1,8 @@
 <?php
-  require_once 'Account.php';
-  require_once 'Holder.php';
+  require_once 'autoload.php';
+
+  use Bank\Entities\Account;
+  use Bank\Entities\Holder;
 
   $geovane = new Holder("123.456.789-10", "Geovane Barbosa", "12/05/1996");
   $firstAccount = new Account($geovane);

@@ -1,4 +1,6 @@
 <?php
+  namespace Bank\Entities;
+  
     //Class to Heritage
   class People{
     //Protected, do that only the children class inherit the father's attributes

@@ -1,5 +1,6 @@
 <?php
-  require_once "People.php";
+  namespace Bank\Entities;
+  use Bank\Entities\People;
 
   class Holder extends People{
     private string $birth_date;

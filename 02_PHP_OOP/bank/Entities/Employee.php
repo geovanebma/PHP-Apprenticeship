@@ -1,5 +1,6 @@
 <?php
-  require_once "People.php";
+  namespace Bank\Entities;
+  use Bank\Entities\People;
 
   class Employee extends People{
     private string $position;
