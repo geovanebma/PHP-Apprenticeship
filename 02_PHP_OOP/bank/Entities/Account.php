@@ -62,7 +62,6 @@
     }
     
     //Encapsulation
-
     public function getInformations(): string{
       return "Balance: ".$this->balance.PHP_EOL."Name: ".$this->holder->getName().PHP_EOL."CPF: ".$this->holder->getCpf().PHP_EOL."Date of Birth: ".$this->holder->getBirthDate().PHP_EOL;
     }

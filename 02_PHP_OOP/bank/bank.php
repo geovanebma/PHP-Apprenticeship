@@ -1,14 +1,16 @@
 <?php
   require_once 'autoload.php';
 
-  use Bank\Entities\Account;
-  use Bank\Entities\Holder;
+  use Bank\Entities\{Account, Holder};
 
   $geovane = new Holder("123.456.789-10", "Geovane Barbosa", "12/05/1996");
-  $firstAccount = new Account($geovane);
-  $firstAccount->deposit(300);
+  
+  if($geovane->canAuthenticate("4321")){
+    $firstAccount = new Account($geovane);
+    $firstAccount->deposit(300);
+    echo $firstAccount->getInformations();
+  }
 
-  echo $firstAccount->getInformations();
 
   // echo Account::$amount_accounts;
   echo Account::getAmountAccounts();
