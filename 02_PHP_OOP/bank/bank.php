@@ -8,7 +8,8 @@
   if($geovane->canAuthenticate("4321")){
     $firstAccount = new Account($geovane);
     $firstAccount->deposit(300);
-    echo $firstAccount->getInformations();
+    // echo $firstAccount->getInformations(); - Verify the __toString method
+    echo $firstAccount;
   }
 
 

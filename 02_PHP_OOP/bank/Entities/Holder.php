@@ -3,7 +3,7 @@
   use Bank\Entities\People;
   use Bank\Entities\Authenticatable;
 
-  class Holder extends People implements Authenticatable{
+  final class Holder extends People implements Authenticatable{
     private string $birth_date;
 
     // Construction
@@ -47,7 +47,7 @@
       return true;
     }
 
-    public function canAuthenticate(string $password):bool{
+    final public function canAuthenticate(string $password):bool{
       return $password === "4321";
     }
   }

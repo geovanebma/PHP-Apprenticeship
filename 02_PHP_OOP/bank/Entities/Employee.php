@@ -3,7 +3,7 @@
   use Bank\Entities\People;
   use Bank\Entities\Authenticatable;
 
-  class Employee extends People implements Authenticatable{
+  final class Employee extends People implements Authenticatable{
     private string $position;
 
     public function __construct(string $name, string $cpf, string $position){
