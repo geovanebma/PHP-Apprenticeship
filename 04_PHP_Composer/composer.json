@@ -1,0 +1,21 @@
+{
+    "name": "php-composer/courses-finder",
+    "description": "Project that find courses",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Geovane Barbosa",
+            "email": "giclesb7@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9",
+        "symfony/dom-crawler": "^7.2",
+        "symfony/css-selector": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Composer\\Src\\":"src/"
+        }
+    }
+}

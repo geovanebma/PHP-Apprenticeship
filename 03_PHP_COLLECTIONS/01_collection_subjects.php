@@ -27,5 +27,4 @@
   }
 
   echo "The average is:".takeAverage($subjects);
-  
 ?>
