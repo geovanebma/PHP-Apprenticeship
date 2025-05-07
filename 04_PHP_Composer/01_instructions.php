@@ -36,4 +36,51 @@
   */
   //composer dumpautoload - if you added an autoload command at the composer.json file, run this command to update
 
+  //if you want to install all library without being dev dependencies you can:
+  //1 - install a dev program: composer require --dev phpunit/phpunit
+  //2 - put the command: composer install --no-dev
+  
+  /*
+    If you need a program to see if your PHP project is well indented, run this:
+    composer require --dev squizlabs/php_codesniffer
+
+    So, with the command vendor\bin\phpcs --help show all command that you can use
+    After, you use vendor\bin\phpcs --standard=PSR12 src\ "Or another directory" to find all error of identation
+  */
+
+  /*
+      Phan - its a php tool to find all errors of programation
+      composer require --dev phan/phan
+      Now to use: vendor\bin\phan.bat --allow-polyfill-parser src\CoursesMethods.php
+  */
+
+  /*
+      "scripts": {
+        "cs": "phpcs --standard=PSR12 src\",
+        "test": "phpunit src\\CoursesMethods.php"
+      }
+      
+      It can do that you run a command at the terminal without a big command, so just use: composer cs
+  */
+  /*
+      If you want to run some scripts at the same time, you can use the check key:
+      
+      "scripts": {
+        "cs": "phpcs --standard=PSR12 src/",
+        "test": "phpunit src\\CoursesMethods.php",
+        "check":[
+          "@cs",
+          "@test"
+        ]
+      }
+
+      composer check
+  */
+  /*
+      If you want to put some descriptions about each script, you can:
+
+      "scripts-descriptions": {
+        "check": "Run all code verifications"
+      }
+  */
 ?>
