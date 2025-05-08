@@ -1,0 +1,43 @@
+# Dependências e build
+/vendor
+/node_modules
+/public/build
+/public/hot
+/public/storage
+
+# Arquivos de ambiente
+.env
+.env.*
+auth.json
+
+# Cache e resultados de testes
+/.phpunit.cache
+/.phpunit.result.cache
+
+# Chaves e arquivos sensíveis
+/storage/*.key
+/storage/pail
+
+# Arquivos temporários do Laravel
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# IDEs e configurações do editor
+/.idea
+/.vscode
+/.fleet
+/.nova
+/.zed
+
+# Laravel Homestead
+Homestead.json
+Homestead.yaml
+
+# Logs e depuração
+npm-debug.log
+yarn-error.log
+
+# Outros arquivos ocultos
+/.phpactor.json
