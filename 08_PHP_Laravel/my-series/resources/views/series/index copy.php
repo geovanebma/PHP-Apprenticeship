@@ -14,9 +14,9 @@
       </div>
       <a href="/series/add" class="btn btn-dark mb-2">Add Serie</a>
       <ul class="list-group">
-        <?php foreach ($series as $serie):?>
-          <li class="list-group-item"><?= $serie;?></li>
-        <?php endforeach;?>
+        @foreach ($series as $serie)
+          <li class="list-group-item">{{ $serie->name }}</li>
+        @endforeach
       </ul>
     </div>
   </body>
