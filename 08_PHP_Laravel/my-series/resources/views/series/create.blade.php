@@ -5,6 +5,15 @@ Add a new serie
 @endsection
 
 @section('content')
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>  
+      @endforeach
+    </ul>
+  </div>
+@endif
 <a href="/series" class="btn btn-dark mb-2">Series page</a>
 <form method="post">
   <!-- @csrf - token verification to see if is yourself even -->
