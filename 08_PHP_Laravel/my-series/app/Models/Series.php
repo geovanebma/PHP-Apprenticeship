@@ -1,5 +1,5 @@
 <?php
-  namespace App;
+  namespace App\Models;
 
   use Illuminate\Database\Eloquent\Model;
 
@@ -7,5 +7,9 @@
   {
     protected $table = "series";
     protected $fillable = ['name', 'watched'];
+
+    public function seasons(){
+      return $this->hasMany(Season::class);
+    }
   }
 ?>
