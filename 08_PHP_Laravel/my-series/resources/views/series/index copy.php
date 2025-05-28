@@ -19,15 +19,26 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Watched?</th>
+            <th scope="col">Edit?</th>
             <th scope="col">Remove?</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($series as $key => $serie)
             <tr class="list-group-item">
-              <td scope="row">{{ $serie->id }}</td>
+              <td scope="row" id="td-serie-name{{$serie->id}}">{{ $serie->id }}</td>
+              <td scope="row" id="edit-serie-name{{$serie->id}}">
+                <div class="input-group w-50">
+                  <input type="text" name="serie-name{{$serie->id}}" id="serie-name{{$serie->id}}" value="{{$serie->name}}">
+                </div>
+              </td>
               <td scope="row">{{ $serie->name }}</td>
               <td scope="row">{{ $serie->watched }}</td>
+              <td scope="row">
+                <button type="button" onclick="toggleInput({{$serie->id}})">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </td>
               <td scope="row">
               <button type="button" class="btn btn-outline-danger">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">

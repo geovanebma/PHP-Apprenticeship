@@ -42,5 +42,8 @@
 
       To revert:
       php artisan migrate:rollback
+
+      If you want to create a class and the migration at the same time
+      php artisan make:model Season -m
   */
 ?>

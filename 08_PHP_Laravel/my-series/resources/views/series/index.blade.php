@@ -20,6 +20,7 @@ Series
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Watched?</th>
+      <th scope="col">Edit?</th>
       <th scope="col">Remove?</th>
     </tr>
   </thead>
@@ -27,7 +28,16 @@ Series
     @foreach ($series as $key => $serie)
       <tr>
         <th scope="col">{{ $serie->id }}</th>
-        <td>{{ $serie->name }}</td>
+        <td scope="row" id="td-serie-name{{$serie->id}}">{{ $serie->name }}</td>
+        <td scope="row" id="edit-serie-name{{$serie->id}}" hidden>
+          <div class="input-group w-50">
+            <input type="text" name="serie-name{{$serie->id}}" id="serie-name{{$serie->id}}" value="{{$serie->name}}">
+            <button class="btn btn-primary" onclick="toggleInput({{ $serie->id }})">
+              <i class="bi bi-check-square-fill"></i>
+            </button>
+            @csrf
+          </div>
+        </td>
         @if ($serie->watched == 'n')
           <td>Not yet</td>
         @elseif ($serie->watched == 'y')
@@ -35,6 +45,11 @@ Series
         @elseif ($serie->watched == 'w')
           <td>Watching</td>
         @endif
+        <td scope="row">
+          <button type="button" class="btn btn-outline-primary" onclick="toggleInput({{$serie->id}})">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </td>
         <td>
         <form action="/series/{{ $serie->id }}" method="post" onsubmit="return confirm('Do you have certain to remove the serie {{ addslashes($serie->name) }}?')">
           @csrf
@@ -50,5 +65,19 @@ Series
       </tr>
     @endforeach
   </tbody>
+  <script>
+    function toggleInput(serie_id){
+      var td_name = document.getElementById('td-serie-name'+serie_id);
+      var edit_name = document.getElementById('edit-serie-name'+serie_id);
+
+      if(td_name.hasAttribute('hidden')){
+        td_name.removeAttribute('hidden');
+        edit_name.hidden = true;
+      }else{
+        edit_name.removeAttribute('hidden');
+        td_name.hidden = true;
+      }
+    }
+  </script>
 </table>
 @endsection
