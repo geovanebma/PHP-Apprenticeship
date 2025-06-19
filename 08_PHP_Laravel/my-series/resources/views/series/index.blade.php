@@ -66,13 +66,35 @@ Series
     @endforeach
   </tbody>
   <script>
+    function editName(id){
+      const name  = document.querySelector(`#serie-name${id}`).value;
+      const token = document.querySelector(`input[name="_token"]`).value;
+      const url = `/series/${id}/editName`;
+      let formData = new FormData();
+
+      formData.append('name', name);
+      formData.append('_token', token);
+      
+      fetch(url, {
+        body: formData,
+        method:'POST'
+      }).then(function(){
+        var td_name = document.getElementById('td-serie-name'+id);
+        var edit_name = document.getElementById('edit-serie-name'+id);
+        
+        td_name.removeAttribute('hidden');
+        edit_name.hidden = true;
+
+        location.reload();
+      })
+    }
+
     function toggleInput(serie_id){
       var td_name = document.getElementById('td-serie-name'+serie_id);
       var edit_name = document.getElementById('edit-serie-name'+serie_id);
 
       if(td_name.hasAttribute('hidden')){
-        td_name.removeAttribute('hidden');
-        edit_name.hidden = true;
+        editName(serie_id);
       }else{
         edit_name.removeAttribute('hidden');
         td_name.hidden = true;

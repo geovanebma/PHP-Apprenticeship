@@ -1,11 +1,16 @@
 <?php
   namespace App\Http\Controllers;
   use App\Models\Series;
+  use Auth;
   use Illuminate\Http\Request;
   use Illuminate\Support\Facades\View;
 
   class SeriesController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth');
+  }
   // public function indexOld(Request $request){
   //   // echo $request->url(); //Show the URL
   //   // var_dump($request->query()); //Show all parameters passed by url
@@ -24,13 +29,17 @@
   // }
 
   public function index(Request $request){
-    // $series = Series::all();
-    $series = Series::query()->orderBy('name')->get();
-    // var_dump($series);
-    $message = $request->session()->get('message');
-    $request->session()->remove("message");
-
-    return view('series.index', compact('series', 'message'));
+    // if(!Auth::check()){
+    //   echo "Wrong way!";
+    // }else{
+      // $series = Series::all();
+      $series = Series::query()->orderBy('name')->get();
+      // var_dump($series);
+      $message = $request->session()->get('message');
+      $request->session()->remove("message");
+  
+      return view('series.index', compact('series', 'message'));
+    // }
   }
 
   public function create(){
@@ -62,6 +71,14 @@
     // Series::create($request->all());
 
     return redirect('/series');
+}
+
+function editName(Request $request){
+  $new_name = $request->name;
+
+  $serie = Series::find($request->id);
+  $serie->name = $new_name;
+  $serie->save();
 }
 
 public function destroy(Request $request){
